@@ -11,3 +11,13 @@ public class CoStatsApplication {
 	}
 
 }
+
+@RestController
+class HelloController
+{
+    @GetMapping("/")
+    String hello()
+    {
+        return "CoStats Project";
+    }
+}
