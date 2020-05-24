@@ -35,18 +35,6 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -62,7 +50,7 @@
 				<version>2.2.0</version>
 				<configuration>
 					<projectId>GCLOUD_CONFIG</projectId>
-					<version>springboot-helloworld</version>
+					<version>costats</version>
 				</configuration>
 			</plugin>
 		</plugins>
