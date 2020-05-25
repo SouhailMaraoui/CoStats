@@ -7,7 +7,6 @@ handlers:
 automatic_scaling:
   min-instances: 4
   max-concurrent-requests: 80
-  target_throughput_utilization:0.75
   min-pending-latency: 6s
   max-pending-latency: 10s
 network: {}
