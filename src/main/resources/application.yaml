@@ -4,3 +4,7 @@ spring:
     url: "jdbc:mysql://34.76.136.244:3306/database"
     password: "password"
     username: "admin"
+  jpa:
+    hibernate.ddl-auto: none
+    generate-ddl: true
+    show-sql: true
