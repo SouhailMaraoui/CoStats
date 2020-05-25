@@ -4,9 +4,7 @@ instance_class: F1
 handlers:
   - url: .*
     script: auto
-automatic_scaling:
-  min_instances: 4
-  max_concurrent_requests: 80
-  min_pending_latency: 6s
-  max_pending_latency: 10s
+basic_scaling:
+  max_instances: 10
+  idle_timeout: 2888m
 network: {}
