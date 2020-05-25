@@ -5,8 +5,8 @@ handlers:
   - url: .*
     script: auto
 automatic_scaling:
-  min-instances: 4
-  max-concurrent-requests: 80
-  min-pending-latency: 6s
-  max-pending-latency: 10s
+  min_instances: 4
+  max_concurrent_requests: 80
+  min_pending_latency: 6s
+  max_pending_latency: 10s
 network: {}
