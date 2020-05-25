@@ -1,5 +1,7 @@
 package com.aseds.costats.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +16,7 @@ public class Profile {
     @Column(name="nomProfile")
     private String nomProfile;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "profile",cascade=CascadeType.ALL)
     private List<Membre> membres = new ArrayList<>();
 

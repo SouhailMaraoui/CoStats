@@ -1,5 +1,7 @@
 package com.aseds.costats.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,6 +14,7 @@ public class Secteur {
     @Column(name="nomSecteur")
     private String nomSecteur;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "secteur",cascade=CascadeType.ALL)
     private Cooperative cooperative;
 

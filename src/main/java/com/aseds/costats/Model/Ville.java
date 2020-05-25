@@ -1,5 +1,7 @@
 package com.aseds.costats.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +13,7 @@ public class Ville {
     @Column(name="id")
     private Long id;
 
+    @JsonIgnore
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idRegion")
     private Region region;
@@ -18,14 +21,17 @@ public class Ville {
     @Column(name="nomVille")
     private String nomVille;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "ville",cascade=CascadeType.ALL)
     private List<Formation> formations= new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "ville",cascade=CascadeType.ALL)
     private List<Evenement> evenements= new ArrayList<>();
 
-    @OneToOne(mappedBy = "ville",cascade=CascadeType.ALL)
-    private Adresse adresse;
+    @JsonIgnore
+    @OneToMany(mappedBy = "ville",cascade=CascadeType.ALL)
+    private List<Adresse> adresses;
 
     public Ville() {
     }
@@ -70,11 +76,11 @@ public class Ville {
         this.evenements = evenements;
     }
 
-    public Adresse getAdresse() {
-        return adresse;
+    public List<Adresse>  getAdresses() {
+        return adresses;
     }
 
-    public void setAdresse(Adresse adresse) {
-        this.adresse = adresse;
+    public void setAdresses(List<Adresse>  adresse) {
+        this.adresses = adresse;
     }
 }

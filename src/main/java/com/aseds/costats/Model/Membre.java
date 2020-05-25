@@ -38,6 +38,7 @@ public class Membre {
     @Column(name="telephone")
     private String telephone;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "membreAssemblee",

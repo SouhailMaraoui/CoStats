@@ -1,5 +1,7 @@
 package com.aseds.costats.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,8 +11,8 @@ public class Adresse {
     @Column(name="id")
     private Long id;
 
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="idVille", referencedColumnName = "id")
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="idVille")
     private Ville ville;
 
     @Column(name="codePostal")
@@ -19,6 +21,7 @@ public class Adresse {
     @Column(name="ligneAdresse")
     private String ligneAdresse;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "adresse",cascade=CascadeType.ALL)
     private Cooperative cooperative;
 

@@ -1,5 +1,7 @@
 package com.aseds.costats.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,12 +11,13 @@ public class Communication {
     @Column(name="id")
     private Long id;
 
+    @JsonIgnore
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idCooperative")
     private Cooperative cooperative;
 
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="idCanalComm", referencedColumnName = "id")
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="idCanalComm")
     private CanalComm canalComm;
 
     @Column(name="nombreUtilisationAnnuel")

@@ -1,6 +1,9 @@
 package com.aseds.costats.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class CanalComm {
@@ -12,8 +15,9 @@ public class CanalComm {
     @Column(name="nomCanalComm")
     private String nomCanalComm;
 
-    @OneToOne(mappedBy = "canalComm",cascade=CascadeType.ALL)
-    private Communication communication;
+    @JsonIgnore
+    @OneToMany(mappedBy = "canalComm",cascade=CascadeType.ALL)
+    private List<Communication> communications;
 
     public CanalComm() {
     }
@@ -34,11 +38,11 @@ public class CanalComm {
         this.nomCanalComm = nomCanalComm;
     }
 
-    public Communication getCommunication() {
-        return communication;
+    public List<Communication> getCommunication() {
+        return communications;
     }
 
-    public void setCommunication(Communication communication) {
-        this.communication = communication;
+    public void setCommunication(List<Communication> communication) {
+        this.communications = communications;
     }
 }
