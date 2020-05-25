@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 public class Assemblee {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
 

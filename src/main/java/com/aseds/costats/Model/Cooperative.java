@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 public class Cooperative {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
 
