@@ -10,11 +10,11 @@ public class Formation {
     @Column(name="id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idCooperative")
     private Cooperative cooperative;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idVille")
     private Ville ville;
 

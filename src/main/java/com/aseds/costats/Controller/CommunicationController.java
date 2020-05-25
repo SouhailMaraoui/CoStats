@@ -1,39 +1,39 @@
 package com.aseds.costats.Controller;
 
-import com.aseds.costats.Model.Cooperative;
-import com.aseds.costats.Repository.CooperativeRepository;
+import com.aseds.costats.Model.Communication;
+import com.aseds.costats.Repository.CommunicationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/cooperative",produces = { MediaType.APPLICATION_JSON_VALUE })
-public class CooperativeController {
+@RequestMapping(value= "/communication",produces = { MediaType.APPLICATION_JSON_VALUE })
+public class CommunicationController {
 
     @Autowired
-    CooperativeRepository repository;
+    CommunicationRepository repository;
 
     @GetMapping(value="/all")
-    public List<Cooperative> getAll()
+    public List<Communication> getAll()
     {
         return repository.findAll();
     }
 
     @GetMapping(value="/{id}")
-    public Cooperative getById(@PathVariable("id") long id)
+    public Communication getById(@PathVariable("id") long id)
     {
         return repository.findById(id).get();
     }
 
     @PostMapping(value = "/create")
-    public void create(@RequestBody Cooperative obj)
+    public void create(@RequestBody Communication obj)
     {
         repository.save(obj);
     }
 
     @PutMapping(value="/{id}/update")
-    public void updateCooperative(@PathVariable("id") long id,@RequestBody Cooperative newObj)
+    public void update(@PathVariable("id") long id,@RequestBody Communication newObj)
     {
         repository.findById(id).map(oldObj -> {
             long idOld=oldObj.getId();

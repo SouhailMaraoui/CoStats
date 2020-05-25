@@ -1,21 +1,25 @@
 package com.aseds.costats.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
 @Entity
-public class Member {
+public class Membre {
     @Id
     @GeneratedValue
     @Column(name="id")
     private Long id;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idCooperative")
     private Cooperative cooperative;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idProfile")
     private Profile profile;
 
@@ -37,11 +41,11 @@ public class Member {
     @ManyToMany
     @JoinTable(
             name = "membreAssemblee",
-            joinColumns = @JoinColumn(name = "idMember"),
+            joinColumns = @JoinColumn(name = "idMembre"),
             inverseJoinColumns = @JoinColumn(name = "idAssemblee"))
     List<Assemblee> assemblees;
 
-    public Member() {
+    public Membre() {
     }
 
     public Long getId() {

@@ -11,7 +11,7 @@ public class Assemblee {
     @Column(name="id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idCooperative")
     private Cooperative cooperative;
 
@@ -24,8 +24,8 @@ public class Assemblee {
     @Column(name="dateFin")
     private Date dateFin;
 
-    @ManyToMany(mappedBy = "assemblees")
-    List<Member> members;
+    @ManyToMany(mappedBy = "assemblees",cascade=CascadeType.ALL)
+    List<Membre> membres;
 
     public Assemblee() {
     }
@@ -70,11 +70,11 @@ public class Assemblee {
         this.dateFin = dateFin;
     }
 
-    public List<Member> getMembers() {
-        return members;
+    public List<Membre> getMembres() {
+        return membres;
     }
 
-    public void setMembers(List<Member> members) {
-        this.members = members;
+    public void setMembres(List<Membre> membres) {
+        this.membres = membres;
     }
 }

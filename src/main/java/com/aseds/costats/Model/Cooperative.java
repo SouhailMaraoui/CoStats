@@ -1,5 +1,7 @@
 package com.aseds.costats.Model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +13,11 @@ public class Cooperative {
     @Column(name="id")
     private Long id;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idSecteur", referencedColumnName = "id")
     private Secteur secteur;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idAdresse", referencedColumnName = "id")
     private Adresse adresse;
 
@@ -25,28 +27,28 @@ public class Cooperative {
     @Column(name="motDePasse")
     private String motDePasse;
 
-    @OneToMany(mappedBy = "cooperative")
-    private List<Member> members= new ArrayList<>();
+    @OneToMany(mappedBy = "cooperative",cascade=CascadeType.ALL)
+    private List<Membre> membres = new ArrayList<>();
 
-    @OneToMany(mappedBy = "cooperative")
+    @OneToMany(mappedBy = "cooperative",cascade=CascadeType.ALL)
     private List<Formation> formations= new ArrayList<>();
 
-    @OneToMany(mappedBy = "cooperative")
+    @OneToMany(mappedBy = "cooperative",cascade=CascadeType.ALL)
     private List<Produit> produits= new ArrayList<>();
 
-    @OneToMany(mappedBy = "cooperative")
+    @OneToMany(mappedBy = "cooperative",cascade=CascadeType.ALL)
     private List<Evenement> evenements= new ArrayList<>();
 
-    @OneToMany(mappedBy = "cooperative")
+    @OneToMany(mappedBy = "cooperative",cascade=CascadeType.ALL)
     private List<Communication> communications= new ArrayList<>();
 
-    @OneToMany(mappedBy = "cooperative")
+    @OneToMany(mappedBy = "cooperative",cascade=CascadeType.ALL)
     private List<Assemblee> assemblees= new ArrayList<>();
 
-    @OneToMany(mappedBy = "cooperative")
+    @OneToMany(mappedBy = "cooperative",cascade=CascadeType.ALL)
     private List<Revenu> revenus= new ArrayList<>();
 
-    @OneToMany(mappedBy = "cooperative")
+    @OneToMany(mappedBy = "cooperative",cascade=CascadeType.ALL)
     private List<Perte> pertes= new ArrayList<>();
 
     public Cooperative() {
@@ -92,12 +94,12 @@ public class Cooperative {
         this.motDePasse = motDePasse;
     }
 
-    public List<Member> getMembers() {
-        return members;
+    public List<Membre> getMembres() {
+        return membres;
     }
 
-    public void setMembers(List<Member> members) {
-        this.members = members;
+    public void setMembres(List<Membre> membres) {
+        this.membres = membres;
     }
 
     public List<Formation> getFormations() {

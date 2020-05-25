@@ -11,20 +11,20 @@ public class Ville {
     @Column(name="id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idRegion")
     private Region region;
 
     @Column(name="nomVille")
     private String nomVille;
 
-    @OneToMany(mappedBy = "ville")
+    @OneToMany(mappedBy = "ville",cascade=CascadeType.ALL)
     private List<Formation> formations= new ArrayList<>();
 
-    @OneToMany(mappedBy = "ville")
+    @OneToMany(mappedBy = "ville",cascade=CascadeType.ALL)
     private List<Evenement> evenements= new ArrayList<>();
 
-    @OneToOne(mappedBy = "ville")
+    @OneToOne(mappedBy = "ville",cascade=CascadeType.ALL)
     private Adresse adresse;
 
     public Ville() {

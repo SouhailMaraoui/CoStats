@@ -14,7 +14,7 @@ public class Region {
     @Column(name="nomRegion")
     private String nomRegion;
 
-    @OneToMany(mappedBy = "region")
+    @OneToMany(mappedBy = "region",cascade=CascadeType.ALL)
     private List<Ville> villes= new ArrayList<>();
 
     public Region() {

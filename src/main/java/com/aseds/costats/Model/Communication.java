@@ -9,11 +9,11 @@ public class Communication {
     @Column(name="id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idCooperative")
     private Cooperative cooperative;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idCanalComm", referencedColumnName = "id")
     private CanalComm canalComm;
 

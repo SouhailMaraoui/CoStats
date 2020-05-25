@@ -12,7 +12,7 @@ public class CanalComm {
     @Column(name="nomCanalComm")
     private String nomCanalComm;
 
-    @OneToOne(mappedBy = "canalComm")
+    @OneToOne(mappedBy = "canalComm",cascade=CascadeType.ALL)
     private Communication communication;
 
     public CanalComm() {

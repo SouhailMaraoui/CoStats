@@ -9,7 +9,7 @@ public class Adresse {
     @Column(name="id")
     private Long id;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idVille", referencedColumnName = "id")
     private Ville ville;
 
@@ -19,7 +19,7 @@ public class Adresse {
     @Column(name="ligneAdresse")
     private String ligneAdresse;
 
-    @OneToOne(mappedBy = "adresse")
+    @OneToOne(mappedBy = "adresse",cascade=CascadeType.ALL)
     private Cooperative cooperative;
 
     public Adresse() {

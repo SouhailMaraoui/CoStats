@@ -9,7 +9,7 @@ public class Revenu {
     @Column(name="id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idCooperative")
     private Cooperative cooperative;
 

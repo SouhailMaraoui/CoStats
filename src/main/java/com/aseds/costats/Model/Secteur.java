@@ -12,7 +12,7 @@ public class Secteur {
     @Column(name="nomSecteur")
     private String nomSecteur;
 
-    @OneToOne(mappedBy = "secteur")
+    @OneToOne(mappedBy = "secteur",cascade=CascadeType.ALL)
     private Cooperative cooperative;
 
     public Secteur() {
