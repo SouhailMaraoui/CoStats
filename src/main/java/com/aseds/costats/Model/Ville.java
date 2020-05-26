@@ -13,7 +13,6 @@ public class Ville {
     @Column(name="id")
     private Long id;
 
-    @JsonIgnore
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idRegion")
     private Region region;

@@ -1,5 +1,6 @@
 package com.aseds.costats.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -27,27 +28,35 @@ public class Cooperative {
     @Column(name="motDePasse")
     private String motDePasse;
 
-    @OneToMany(mappedBy = "cooperative",cascade=CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "cooperative")
     private List<Membre> membres = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cooperative",cascade=CascadeType.ALL)
     private List<Formation> formations= new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cooperative",cascade=CascadeType.ALL)
     private List<Produit> produits= new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cooperative",cascade=CascadeType.ALL)
     private List<Evenement> evenements= new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cooperative",cascade=CascadeType.ALL)
     private List<Communication> communications= new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cooperative",cascade=CascadeType.ALL)
     private List<Assemblee> assemblees= new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cooperative",cascade=CascadeType.ALL)
     private List<Revenu> revenus= new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cooperative",cascade=CascadeType.ALL)
     private List<Perte> pertes= new ArrayList<>();
 

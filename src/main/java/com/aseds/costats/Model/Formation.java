@@ -12,7 +12,6 @@ public class Formation {
     @Column(name="id")
     private Long id;
 
-    @JsonIgnore
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idCooperative")
     private Cooperative cooperative;
