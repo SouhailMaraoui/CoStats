@@ -22,6 +22,17 @@ public class Communication {
     @Column(name="nombreUtilisationAnnuel")
     private int nombreUtilisationAnnuel;
 
+    @Column(name="annee")
+    private String annnee;
+
+    public String getAnnnee() {
+        return annnee;
+    }
+
+    public void setAnnnee(String annnee) {
+        this.annnee = annnee;
+    }
+
     public Communication() {
     }
 

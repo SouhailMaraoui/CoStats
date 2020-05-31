@@ -21,6 +21,16 @@ public class Produit {
     @Column(name="qteProduit")
     private int qteProduit;
 
+    @Column(name="annee")
+    private String annnee;
+
+    public String getAnnnee() {
+        return annnee;
+    }
+
+    public void setAnnnee(String annnee) {
+        this.annnee = annnee;
+    }
     public Produit() {
     }
 

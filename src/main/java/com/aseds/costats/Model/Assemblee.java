@@ -29,6 +29,17 @@ public class Assemblee {
     @ManyToMany(mappedBy = "assemblees",cascade=CascadeType.ALL)
     List<Membre> membres;
 
+    @Column(name="annee")
+    private String annnee;
+
+    public String getAnnnee() {
+        return annnee;
+    }
+
+    public void setAnnnee(String annnee) {
+        this.annnee = annnee;
+    }
+
     public Assemblee() {
     }
 

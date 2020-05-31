@@ -29,6 +29,17 @@ public class Formation {
     @Column(name="dateFin")
     private Date dateFin;
 
+    @Column(name="annee")
+    private String annnee;
+
+    public String getAnnnee() {
+        return annnee;
+    }
+
+    public void setAnnnee(String annnee) {
+        this.annnee = annnee;
+    }
+
     public Formation() {
     }
 
