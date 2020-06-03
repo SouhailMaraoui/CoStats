@@ -20,6 +20,9 @@ public class Cooperative {
     @Column(name="idAdresse")
     private Long  idAdresse;
 
+    @Column(name="idRegion")
+    private Long  idRegion;
+
     @Column(name="nomCooperative")
     private String nomCooperative;
 
@@ -56,5 +59,13 @@ public class Cooperative {
 
     public void setNomCooperative(String nomCooperative) {
         this.nomCooperative = nomCooperative;
+    }
+
+    public Long getIdRegion() {
+        return idRegion;
+    }
+
+    public void setIdRegion(Long idRegion) {
+        this.idRegion = idRegion;
     }
 }
