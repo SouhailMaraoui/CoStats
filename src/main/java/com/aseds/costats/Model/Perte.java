@@ -21,7 +21,7 @@ public class Perte {
     private double sommePerdue;
 
     @Column(name="annee")
-    private String annnee;
+    private String annee;
 
     public Perte() {
     }
@@ -58,11 +58,11 @@ public class Perte {
         this.sommePerdue = sommePerdue;
     }
 
-    public String getAnnnee() {
-        return annnee;
+    public String getAnnee() {
+        return annee;
     }
 
-    public void setAnnnee(String annnee) {
-        this.annnee = annnee;
+    public void setAnnee(String annee) {
+        this.annee = annee;
     }
 }

@@ -1,39 +1,40 @@
 package com.aseds.costats.Controller;
 
-import com.aseds.costats.Model.Adresse;
-import com.aseds.costats.Repository.AdresseRepository;
+import com.aseds.costats.Model.Rapport;
+import com.aseds.costats.Repository.RapportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
-@RequestMapping(value= "/adresse",produces = { MediaType.APPLICATION_JSON_VALUE })
-public class AdresseController {
+@RequestMapping(value= "/rapport",produces = { MediaType.APPLICATION_JSON_VALUE })
+public class RapportController {
 
     @Autowired
-    AdresseRepository repository;
+    RapportRepository repository;
 
     @GetMapping(value="/all")
-    public List<Adresse> getAll()
+    public List<Rapport> getAll()
     {
         return repository.findAll();
     }
 
     @GetMapping(value="/{id}")
-    public Adresse getById(@PathVariable("id") long id)
+    public Rapport getById(@PathVariable("id") long id)
     {
         return repository.findById(id).get();
     }
 
     @PostMapping(value = "/create")
-    public Long create(@RequestBody Adresse obj)
+    public void create(@RequestBody Rapport obj)
     {
-        return repository.save(obj).getId();
+        repository.save(obj);
     }
 
     @PutMapping(value="/{id}/update")
-    public void update(@PathVariable("id") long id,@RequestBody Adresse newObj)
+    public void update(@PathVariable("id") long id,@RequestBody Rapport newObj)
     {
         repository.findById(id).map(oldObj -> {
             long idOld=oldObj.getId();

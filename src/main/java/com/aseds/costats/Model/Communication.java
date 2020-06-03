@@ -18,7 +18,7 @@ public class Communication {
     private Long nombreUtilisationAnnuel;
 
     @Column(name="annee")
-    private String annnee;
+    private String annee;
 
     public Communication() {
     }
@@ -47,11 +47,11 @@ public class Communication {
         this.nombreUtilisationAnnuel = nombreUtilisationAnnuel;
     }
 
-    public String getAnnnee() {
-        return annnee;
+    public String getAnnee() {
+        return annee;
     }
 
-    public void setAnnnee(String annnee) {
-        this.annnee = annnee;
+    public void setAnnee(String annee) {
+        this.annee = annee;
     }
 }

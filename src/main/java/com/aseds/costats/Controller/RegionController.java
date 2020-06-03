@@ -39,7 +39,7 @@ public class RegionController {
         List<Ville> villes=villeRepository.findAll();
         for(Ville ville:villes)
         {
-            if(ville.getRegion().getId()==id){
+            if(ville.getIdRegion()==id){
                 ret.add(ville);
             }
         }

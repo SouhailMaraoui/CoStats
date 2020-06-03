@@ -27,9 +27,9 @@ public class CooperativeController {
     }
 
     @PostMapping(value = "/create")
-    public void create(@RequestBody Cooperative obj)
+    public Long create(@RequestBody Cooperative obj)
     {
-        repository.save(obj);
+        return repository.save(obj).getId();
     }
 
     @PutMapping(value="/{id}/update")

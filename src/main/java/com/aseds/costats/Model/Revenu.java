@@ -21,14 +21,14 @@ public class Revenu {
     private double sommeGagnee;
 
     @Column(name="annee")
-    private String annnee;
+    private String annee;
 
-    public String getAnnnee() {
-        return annnee;
+    public String getAnnee() {
+        return annee;
     }
 
-    public void setAnnnee(String annnee) {
-        this.annnee = annnee;
+    public void setAnnee(String annee) {
+        this.annee = annee;
     }
 
     public Revenu() {

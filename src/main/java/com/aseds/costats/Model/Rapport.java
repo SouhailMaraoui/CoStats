@@ -5,20 +5,18 @@ import javax.persistence.*;
 @Entity
 public class Rapport {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column(name="annee")
+    @Column(name = "annee")
     private String annee;
 
-    @Column(name="idCooperative")
-    private Long idCooperative;
+    @Column(name = "idUser")
+    private Long idUser;
 
-    @Column(name="activite")
-    private String activite;
-    @Column(name="finanacier")
-    private String finanacier;
+    @Column(name = "type")
+    private String type;
 
     public Rapport() {
     }
@@ -39,27 +37,19 @@ public class Rapport {
         this.annee = annee;
     }
 
-    public Long getIdCooperative() {
-        return idCooperative;
+    public Long getIdUser() {
+        return idUser;
     }
 
-    public void setIdCooperative(Long idCooperative) {
-        this.idCooperative = idCooperative;
+    public void setIdUser(Long idUser) {
+        this.idUser = idUser;
     }
 
-    public String getActivite() {
-        return activite;
+    public String getType() {
+        return type;
     }
 
-    public void setActivite(String activite) {
-        this.activite = activite;
-    }
-
-    public String getFinanacier() {
-        return finanacier;
-    }
-
-    public void setFinanacier(String finanacier) {
-        this.finanacier = finanacier;
+    public void setType(String type) {
+        this.type = type;
     }
 }

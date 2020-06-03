@@ -28,7 +28,7 @@ public class Evenement {
     private Date dateFin;
 
     @Column(name="annee")
-    private String annnee;
+    private String annee;
 
     public Evenement() {
     }
@@ -81,11 +81,11 @@ public class Evenement {
         this.dateFin = dateFin;
     }
 
-    public String getAnnnee() {
-        return annnee;
+    public String getAnnee() {
+        return annee;
     }
 
-    public void setAnnnee(String annnee) {
-        this.annnee = annnee;
+    public void setAnnee(String annee) {
+        this.annee = annee;
     }
 }
