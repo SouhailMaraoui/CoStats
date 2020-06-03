@@ -1,11 +1,5 @@
 package com.aseds.costats.Model;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Membre {
@@ -14,13 +8,11 @@ public class Membre {
     @Column(name="id")
     private Long id;
 
-    @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="idCooperative")
-    private Cooperative cooperative;
+    @Column(name="idCooperative")
+    private Long idCooperative;
 
-    @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="idProfile")
-    private Profile profile;
+    @Column(name="idProfile")
+    private Long idProfile;
 
     @Column(name="Sexe")
     private String sexe;
@@ -37,14 +29,6 @@ public class Membre {
     @Column(name="telephone")
     private String telephone;
 
-    @JsonIgnore
-    @ManyToMany
-    @JoinTable(
-            name = "membreAssemblee",
-            joinColumns = @JoinColumn(name = "idMembre"),
-            inverseJoinColumns = @JoinColumn(name = "idAssemblee"))
-    List<Assemblee> assemblees;
-
     public Membre() {
     }
 
@@ -56,20 +40,20 @@ public class Membre {
         this.id = id;
     }
 
-    public Cooperative getCooperative() {
-        return cooperative;
+    public Long getIdCooperative() {
+        return idCooperative;
     }
 
-    public void setCooperative(Cooperative cooperative) {
-        this.cooperative = cooperative;
+    public void setIdCooperative(Long idCooperative) {
+        this.idCooperative = idCooperative;
     }
 
-    public Profile getProfile() {
-        return profile;
+    public Long getIdProfile() {
+        return idProfile;
     }
 
-    public void setProfile(Profile profile) {
-        this.profile = profile;
+    public void setIdProfile(Long idProfile) {
+        this.idProfile = idProfile;
     }
 
     public String getSexe() {
@@ -110,13 +94,5 @@ public class Membre {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
-    }
-
-    public List<Assemblee> getAssemblees() {
-        return assemblees;
-    }
-
-    public void setAssemblees(List<Assemblee> assemblees) {
-        this.assemblees = assemblees;
     }
 }

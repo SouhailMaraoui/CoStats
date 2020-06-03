@@ -11,9 +11,8 @@ public class Revenu {
     @Column(name="id")
     private Long id;
 
-    @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="idCooperative")
-    private Cooperative cooperative;
+    @Column(name="idCooperative")
+    private Long idCooperative;
 
     @Column(name="sourceRevenue")
     private String sourceRevenue;
@@ -43,12 +42,12 @@ public class Revenu {
         this.id = id;
     }
 
-    public Cooperative getCooperative() {
-        return cooperative;
+    public Long getIdCooperative() {
+        return idCooperative;
     }
 
-    public void setCooperative(Cooperative cooperative) {
-        this.cooperative = cooperative;
+    public void setIdCooperative(Long idCooperative) {
+        this.idCooperative = idCooperative;
     }
 
     public String getSourceRevenue() {

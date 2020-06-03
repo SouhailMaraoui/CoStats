@@ -1,10 +1,14 @@
 package com.aseds.costats.Controller;
 
 import com.aseds.costats.Model.Region;
+import com.aseds.costats.Model.Ville;
 import com.aseds.costats.Repository.RegionRepository;
+import com.aseds.costats.Repository.VilleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -13,6 +17,8 @@ public class RegionController {
 
     @Autowired
     RegionRepository repository;
+    @Autowired
+    VilleRepository villeRepository;
 
     @GetMapping(value="/all")
     public List<Region> getAll()
@@ -26,10 +32,25 @@ public class RegionController {
         return repository.findById(id).get();
     }
 
-    @PostMapping(value = "/create")
-    public void create(@RequestBody Region obj)
+    @GetMapping(value="/{id}/villes")
+    public List<Ville> getByVilles(@PathVariable("id") long id)
     {
-        repository.save(obj);
+        List<Ville> ret=new ArrayList<>();
+        List<Ville> villes=villeRepository.findAll();
+        for(Ville ville:villes)
+        {
+            if(ville.getRegion().getId()==id){
+                ret.add(ville);
+            }
+        }
+        return ret;
+
+    }
+
+    @PostMapping(value = "/create")
+    public long create(@RequestBody Region obj)
+    {
+        return repository.save(obj).getId();
     }
 
     @PutMapping(value="/{id}/update")

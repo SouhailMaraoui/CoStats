@@ -13,9 +13,8 @@ public class Assemblee {
     @Column(name="id")
     private Long id;
 
-    @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="idCooperative")
-    private Cooperative cooperative;
+    @Column(name="idCooperative")
+    private Long idCooperative;
 
     @Column(name="motifAssemblee")
     private String motifAssemblee;
@@ -26,19 +25,8 @@ public class Assemblee {
     @Column(name="dateFin")
     private Date dateFin;
 
-    @ManyToMany(mappedBy = "assemblees",cascade=CascadeType.ALL)
-    List<Membre> membres;
-
     @Column(name="annee")
     private String annnee;
-
-    public String getAnnnee() {
-        return annnee;
-    }
-
-    public void setAnnnee(String annnee) {
-        this.annnee = annnee;
-    }
 
     public Assemblee() {
     }
@@ -51,12 +39,12 @@ public class Assemblee {
         this.id = id;
     }
 
-    public Cooperative getCooperative() {
-        return cooperative;
+    public Long getIdCooperative() {
+        return idCooperative;
     }
 
-    public void setCooperative(Cooperative cooperative) {
-        this.cooperative = cooperative;
+    public void setIdCooperative(Long idCooperative) {
+        this.idCooperative = idCooperative;
     }
 
     public String getMotifAssemblee() {
@@ -83,11 +71,11 @@ public class Assemblee {
         this.dateFin = dateFin;
     }
 
-    public List<Membre> getMembres() {
-        return membres;
+    public String getAnnnee() {
+        return annnee;
     }
 
-    public void setMembres(List<Membre> membres) {
-        this.membres = membres;
+    public void setAnnnee(String annnee) {
+        this.annnee = annnee;
     }
 }

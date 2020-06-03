@@ -12,13 +12,11 @@ public class Evenement {
     @Column(name="id")
     private Long id;
 
-    @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="idCooperative")
-    private Cooperative cooperative;
+    @Column(name="idCooperative")
+    private Long idCooperative;
 
-    @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="idVille")
-    private Ville ville;
+    @Column(name="idVille")
+    private Long idVille;
 
     @Column(name="sujetEvenement")
     private String sujetEvenement;
@@ -32,14 +30,6 @@ public class Evenement {
     @Column(name="annee")
     private String annnee;
 
-    public String getAnnnee() {
-        return annnee;
-    }
-
-    public void setAnnnee(String annnee) {
-        this.annnee = annnee;
-    }
-
     public Evenement() {
     }
 
@@ -51,20 +41,20 @@ public class Evenement {
         this.id = id;
     }
 
-    public Cooperative getCooperative() {
-        return cooperative;
+    public Long getIdCooperative() {
+        return idCooperative;
     }
 
-    public void setCooperative(Cooperative cooperative) {
-        this.cooperative = cooperative;
+    public void setIdCooperative(Long idCooperative) {
+        this.idCooperative = idCooperative;
     }
 
-    public Ville getVille() {
-        return ville;
+    public Long getIdVille() {
+        return idVille;
     }
 
-    public void setVille(Ville ville) {
-        this.ville = ville;
+    public void setIdVille(Long idVille) {
+        this.idVille = idVille;
     }
 
     public String getSujetEvenement() {
@@ -89,5 +79,13 @@ public class Evenement {
 
     public void setDateFin(Date dateFin) {
         this.dateFin = dateFin;
+    }
+
+    public String getAnnnee() {
+        return annnee;
+    }
+
+    public void setAnnnee(String annnee) {
+        this.annnee = annnee;
     }
 }

@@ -16,9 +16,6 @@ public class Region {
     @Column(name="nomRegion")
     private String nomRegion;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "region",cascade=CascadeType.ALL)
-    private List<Ville> villes= new ArrayList<>();
 
     public Region() {
     }
@@ -37,13 +34,5 @@ public class Region {
 
     public void setNomRegion(String nomRegion) {
         this.nomRegion = nomRegion;
-    }
-
-    public List<Ville> getVilles() {
-        return villes;
-    }
-
-    public void setVilles(List<Ville> villes) {
-        this.villes = villes;
     }
 }

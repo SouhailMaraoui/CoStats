@@ -11,9 +11,8 @@ public class Perte {
     @Column(name="id")
     private Long id;
 
-    @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="idCooperative")
-    private Cooperative cooperative;
+    @Column(name="idCooperative")
+    private Long idCooperative;
 
     @Column(name="motifPerte")
     private String motifPerte;
@@ -23,14 +22,6 @@ public class Perte {
 
     @Column(name="annee")
     private String annnee;
-
-    public String getAnnnee() {
-        return annnee;
-    }
-
-    public void setAnnnee(String annnee) {
-        this.annnee = annnee;
-    }
 
     public Perte() {
     }
@@ -43,12 +34,12 @@ public class Perte {
         this.id = id;
     }
 
-    public Cooperative getCooperative() {
-        return cooperative;
+    public Long getIdCooperative() {
+        return idCooperative;
     }
 
-    public void setCooperative(Cooperative cooperative) {
-        this.cooperative = cooperative;
+    public void setIdCooperative(Long idCooperative) {
+        this.idCooperative = idCooperative;
     }
 
     public String getMotifPerte() {
@@ -65,5 +56,13 @@ public class Perte {
 
     public void setSommePerdue(double sommePerdue) {
         this.sommePerdue = sommePerdue;
+    }
+
+    public String getAnnnee() {
+        return annnee;
+    }
+
+    public void setAnnnee(String annnee) {
+        this.annnee = annnee;
     }
 }

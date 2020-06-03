@@ -11,27 +11,14 @@ public class Communication {
     @Column(name="id")
     private Long id;
 
-    @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="idCooperative")
-    private Cooperative cooperative;
-
-    @ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="idCanalComm")
-    private CanalComm canalComm;
+    @Column(name="idCanalComm")
+    private Long idCanalComm;
 
     @Column(name="nombreUtilisationAnnuel")
-    private int nombreUtilisationAnnuel;
+    private Long nombreUtilisationAnnuel;
 
     @Column(name="annee")
     private String annnee;
-
-    public String getAnnnee() {
-        return annnee;
-    }
-
-    public void setAnnnee(String annnee) {
-        this.annnee = annnee;
-    }
 
     public Communication() {
     }
@@ -44,27 +31,27 @@ public class Communication {
         this.id = id;
     }
 
-    public Cooperative getCooperative() {
-        return cooperative;
+    public Long getIdCanalComm() {
+        return idCanalComm;
     }
 
-    public void setCooperative(Cooperative cooperative) {
-        this.cooperative = cooperative;
+    public void setIdCanalComm(Long idCanalComm) {
+        this.idCanalComm = idCanalComm;
     }
 
-    public CanalComm getCanalComm() {
-        return canalComm;
-    }
-
-    public void setCanalComm(CanalComm canalComm) {
-        this.canalComm = canalComm;
-    }
-
-    public int getNombreUtilisationAnnuel() {
+    public Long getNombreUtilisationAnnuel() {
         return nombreUtilisationAnnuel;
     }
 
-    public void setNombreUtilisationAnnuel(int nombreUtilisationAnnuel) {
+    public void setNombreUtilisationAnnuel(Long nombreUtilisationAnnuel) {
         this.nombreUtilisationAnnuel = nombreUtilisationAnnuel;
+    }
+
+    public String getAnnnee() {
+        return annnee;
+    }
+
+    public void setAnnnee(String annnee) {
+        this.annnee = annnee;
     }
 }

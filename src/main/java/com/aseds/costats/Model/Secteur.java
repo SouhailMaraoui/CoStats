@@ -3,6 +3,7 @@ package com.aseds.costats.Model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Secteur {
@@ -13,10 +14,6 @@ public class Secteur {
 
     @Column(name="nomSecteur")
     private String nomSecteur;
-
-    @JsonIgnore
-    @OneToOne(mappedBy = "secteur",cascade=CascadeType.ALL)
-    private Cooperative cooperative;
 
     public Secteur() {
     }
@@ -35,13 +32,5 @@ public class Secteur {
 
     public void setNomSecteur(String nomSecteur) {
         this.nomSecteur = nomSecteur;
-    }
-
-    public Cooperative getCooperative() {
-        return cooperative;
-    }
-
-    public void setCooperative(Cooperative cooperative) {
-        this.cooperative = cooperative;
     }
 }

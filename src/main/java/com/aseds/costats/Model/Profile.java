@@ -16,10 +16,6 @@ public class Profile {
     @Column(name="nomProfile")
     private String nomProfile;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "profile",cascade=CascadeType.ALL)
-    private List<Membre> membres = new ArrayList<>();
-
     public Profile() {
     }
 
@@ -37,13 +33,5 @@ public class Profile {
 
     public void setNomProfile(String nomProfile) {
         this.nomProfile = nomProfile;
-    }
-
-    public List<Membre> getMembres() {
-        return membres;
-    }
-
-    public void setMembres(List<Membre> membres) {
-        this.membres = membres;
     }
 }
