@@ -1,7 +1,5 @@
 package com.aseds.costats.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 
 @Entity
@@ -10,6 +8,9 @@ public class Communication {
     @GeneratedValue
     @Column(name="id")
     private Long id;
+
+    @Column(name="idCooperative")
+    private Long idCooperative;
 
     @Column(name="idCanalComm")
     private Long idCanalComm;
@@ -53,5 +54,13 @@ public class Communication {
 
     public void setAnnee(String annee) {
         this.annee = annee;
+    }
+
+    public Long getIdCooperative() {
+        return idCooperative;
+    }
+
+    public void setIdCooperative(Long idCooperative) {
+        this.idCooperative = idCooperative;
     }
 }
